@@ -1,12 +1,17 @@
 <?php
 defined('_JEXEC') or die;
-JHtml::_('stylesheet', 'template.css', array('version' => 'auto', 'relative' => true));
-JHtml::_('stylesheet', 'panorama_viewer.css', array('version' => 'auto', 'relative' => true));
-JHtml::_('script', 'imagesloaded.pkgd.min.js', array('version' => 'auto', 'relative' => true));
-JHtml::_('script', 'detect-it.umd.production.js', array('version' => 'auto', 'relative' => true));
-JHtml::_('script', 'template.js', array('version' => 'auto', 'relative' => true));
-JHtml::_('script', 'jquery.panorama_viewer.js', array('version' => 'auto', 'relative' => true));
-$doc = JFactory::getDocument();
+
+use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Factory;
+
+HTMLHelper::_('stylesheet', 'template.css', array('version' => 'auto', 'relative' => true));
+HTMLHelper::_('stylesheet', 'panorama_viewer.css', array('version' => 'auto', 'relative' => true));
+HTMLHelper::_('script', 'imagesloaded.pkgd.min.js', array('version' => 'auto', 'relative' => true));
+HTMLHelper::_('script', 'detect-it.umd.production.js', array('version' => 'auto', 'relative' => true));
+HTMLHelper::_('script', 'template.js', array('version' => 'auto', 'relative' => true));
+HTMLHelper::_('script', 'jquery.panorama_viewer.js', array('version' => 'auto', 'relative' => true));
+
+$doc = Factory::getDocument();
 $doc->addScript('/templates/' . $this->template . '/script/detect-it.umd.production.js', 'text/javascript');
 $doc->addScript('/templates/' . $this->template . '/script/imagesloaded.pkgd.min.js', 'text/javascript');
 $doc->addScript('/templates/' . $this->template . '/script/template.js', 'text/javascript');
@@ -15,12 +20,11 @@ $doc->addScript('/templates/' . $this->template . '/script/jquery.panorama_viewe
 
 <!DOCTYPE html>
 <html lang="de" dir="ltr">
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="https://use.typekit.net/yai0bkg.css">
-		<jdoc:include type="head" />
-
-	</head>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://use.typekit.net/yai0bkg.css">
+        <jdoc:include type="head" />
+    </head>
 	<body>
 		<header>
 			<div class="blue-overlay"></div>
