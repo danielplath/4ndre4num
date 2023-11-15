@@ -7,12 +7,12 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-defined('_JEXEC') or die;
+ defined('JPATH_BASE') or die;
 
 // Create a shortcut for params.
 $params = $this->item->params;
-JHtml::addIncludePath(JPATH_COMPONENT . '/helpers/html');
-$canEdit = $this->item->params->get('access-edit');
+HTMLHelper::addIncludePath(JPATH_COMPONENT . '/helpers/html');
+$canEdit = $this->item->params->get('access-edit') && $user->authorise('core.edit', 'com_content.article.' . $this->item->id);
 $info    = $params->get('info_block_position', 0);
 
 // Check if associations are implemented. If they are, define the parameter.

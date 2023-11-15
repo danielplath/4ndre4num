@@ -12,7 +12,8 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Language\Multilanguage;
 
-JHtml::addIncludePath(JPATH_COMPONENT . '/helpers/html');
+use Joomla\CMS\HTML\HTMLHelper;
+HTMLHelper::addIncludePath(JPATH_COMPONENT . '/helpers/html');
 
 // Create some shortcuts.
 $n          = count($this->items);
@@ -28,7 +29,8 @@ if (($this->params->get('filter_field') === 'tag') && (Multilanguage::isEnabled(
 	switch ($tagfilter)
 	{
 		case 'current_language' :
-			$langFilter = JFactory::getApplication()->getLanguage()->getTag();
+			use Joomla\CMS\Factory;
+			$langFilter = Factory::getApplication()->getLanguage()->getTag();
 			break;
 
 		case 'all' :
@@ -64,7 +66,7 @@ JFactory::getDocument()->addStyleDeclaration('
 
 $tableClass = $this->params->get('show_headings') != 1 ? ' table-noheader' : '';
 ?>
-<form action="<?php echo htmlspecialchars(JUri::getInstance()->toString()); ?>" method="post" name="adminForm" id="adminForm" class="form-inline">
+<form action="<?php echo htmlspecialchars(Route::_(JUri::getInstance()->toString())); ?>" method="post" name="adminForm" id="adminForm" class="form-inline">
 <?php if ($this->params->get('filter_field') !== 'hide' || $this->params->get('show_pagination_limit')) : ?>
 	<fieldset class="filters btn-toolbar clearfix">
 		<legend class="hide"><?php echo JText::_('COM_CONTENT_FORM_FILTER_LEGEND'); ?></legend>

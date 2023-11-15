@@ -7,13 +7,13 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-defined('_JEXEC') or die;
+defined('JPATH_BASE') or die;
 
-JHtml::_('bootstrap.tooltip');
+HTMLHelper::_('bootstrap.tooltip');
 
 $class  = ' class="first"';
-$lang   = JFactory::getLanguage();
-$user   = JFactory::getUser();
+$lang   = Factory::getLanguage();
+$user   = Factory::getUser();
 $groups = $user->getAuthorisedViewLevels();
 
 if ($this->maxLevel != 0 && count($this->children[$this->category->id]) > 0) : ?>
@@ -35,7 +35,7 @@ if ($this->maxLevel != 0 && count($this->children[$this->category->id]) > 0) : ?
 							<?php echo $child->getNumItems(true); ?>
 						</span>
 					<?php endif; ?>
-					<a href="<?php echo JRoute::_(ContentHelperRoute::getCategoryRoute($child->id)); ?>">
+					<a href="<?php echo Route::_('index.php?option=com_content&view=category&id='.$child->id); ?>">
 					<?php echo $this->escape($child->title); ?></a>
 
 					<?php if ($this->maxLevel > 1 && count($child->getChildren()) > 0) : ?>

@@ -7,13 +7,14 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-defined('_JEXEC') or die;
+defined('JPATH_BASE') or die;
 
-JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
+use Joomla\CMS\HTML\HTMLHelper;
+HTMLHelper::addIncludePath(JPATH_COMPONENT . '/helpers');
+HTMLHelper::_('behavior.caption');
 
-JHtml::_('behavior.caption');
-
-$dispatcher = JEventDispatcher::getInstance();
+use Joomla\CMS\Factory;
+$dispatcher = Factory::getApplication()->getDispatcher();
 
 $this->category->text = $this->category->description;
 $dispatcher->trigger('onContentPrepare', array($this->category->extension . '.categories', &$this->category, &$this->params, 0));
@@ -65,7 +66,7 @@ $afterDisplayContent = trim(implode("\n", $results));
 
 	<?php if (empty($this->lead_items) && empty($this->link_items) && empty($this->intro_items)) : ?>
 		<?php if ($this->params->get('show_no_articles', 1)) : ?>
-			<p><?php echo JText::_('COM_CONTENT_NO_ARTICLES'); ?></p>
+			<p><?php echo Text::_('COM_CONTENT_NO_ARTICLES'); ?></p>
 		<?php endif; ?>
 	<?php endif; ?>
 
