@@ -1,0 +1,59 @@
+/*
+Settings (used with preprocessors and contain global variables such as fonts, configs, colors definitions, etc.)
+-- variables:
+*/
+
+
+/*
+## Colors:
+*/
+$black: #000;
+$white: #fff;
+
+$darkBlue: #003865;
+$darkerBlue: #004F8E;
+$blue: #0061ad;
+$lighterBlue: #BFDCF2;
+$lightBlue: #DEEEFF;
+
+$beige: #FFFAF2;
+$red: #E42F38;
+
+$darkGray: #232323;
+$darkerGray: #414141;
+$gray: #6C6C6C;
+$lighterGray: #CACACA;
+$lightGray: #E6E6E6;
+
+
+$textColor: $darkerGray;
+$introTextColor: $gray;
+$bgColor: $beige;
+
+
+/*
+## Fonts:
+*/
+$azoSans: 'azo-sans-web', sans-serif;
+$museoSansRounded: 'museo-sans-rounded', Calibri, sans-serif;
+$mainFont: $museoSansRounded;
+
+$fontSizeText: 16px;
+$fontSizeIntro: 20px;
+// $lineHeight: 30px;
+$lineHeight: 27px;
+
+/*
+## misc:
+*/
+$borderradius: 4px;
+
+$siteMaxWidth: 1200px;
+
+/*breakpoints*/
+$desktopBreakpoint: 920px;
+$tabletBreakpoint: 768px;
+$mobileBreakpoint: 576px;
+
+$menuBreakpoint: $desktopBreakpoint;
+

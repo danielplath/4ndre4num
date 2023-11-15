@@ -1,0 +1,50 @@
+/*
+Elements (used with preprocessors and contain font, colors definitions, etc.)
+-- form elements:
+*/
+
+form{
+
+    .control-group{
+        margin-bottom: 10px;
+    }
+
+    input{
+        &[type=text],&[type=password],&[type=email]{
+            height: 40px;
+            border-radius: 5px;
+            border: 1px solid #6C6C6C;
+            padding: 0 10px;
+            min-width: 250px;
+
+            &:focus{
+                border: 2px solid $blue;
+                outline: none;
+            }
+        }
+    }
+
+    label{
+        &[for=remember]{
+            float: left;
+            margin-right: 5px;
+        }
+    }
+
+    fieldset{
+        margin-bottom: 10px;
+
+        legend{
+            font-size: 27px;
+            line-height: 40px;
+            color: #232323;
+
+        }
+    }
+
+    button{
+        &[type=submit]{
+            margin-right: 10px;
+        }
+    }
+}

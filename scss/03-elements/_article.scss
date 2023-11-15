@@ -1,0 +1,562 @@
+div.page-header{
+    position: relative;
+    padding: 0 0 16px 0;
+
+    h1,h2,h3,h4{
+        font-size: $lineHeight;
+        line-height: 40px;
+        color: $darkGray;
+    }
+
+}
+
+// $imageDistance: 24px;
+$articleGap: 6.75%;
+$columnWidth: calc(50% - 6.75%/2 + 6.75%); //including gap
+$columnWidthVanilla: calc(50% - 6.75%/2); //without gap
+$imageDistance: $articleGap;
+
+
+div.item-image, .aligned-img{
+    display: grid;
+    margin-top: 15px;
+
+    img{
+        place-self: center;
+        margin-bottom: 5px;
+    }
+
+    &.pull-left{
+        display: inline-flex;
+        float: left;
+        padding-right: $imageDistance;
+        max-width: $columnWidth;
+        padding-top: 5px;
+
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &.pull-right{
+        display: inline-flex;
+        float: right;
+        padding-left: $imageDistance;
+        max-width: $columnWidth;
+        padding-top: 5px;
+
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &.pull-none{
+        max-height: 480px;
+        height: 100%;
+        // height: 480px;
+        width: 100%;
+        display: inline-block;
+
+        img{
+            width: 100%;
+            height: 100%;
+            max-height: 480px;
+            object-fit: contain;
+            // margin-left: auto;
+            // margin-right: auto;
+            margin-top: 0px;
+        }
+    }
+}
+
+//Bildunterschrift:
+.img_caption, figure figcaption, img+figcaption, p.aligned-img{
+    font-style: italic;
+    font-size: 14px;
+    color: $gray;
+    line-height: 22px;
+    padding-bottom: 4px;
+    width: 100% !important;
+}
+
+.pull-none + .article-body{
+    .introtext{
+        padding-top: 10px;
+    }
+}
+
+//Bildunterschrift für JCE Editor:
+.aligned-img{
+    margin-top: inherit;
+    flex-direction: column;
+
+    &p{
+        padding: 5px 0;
+    }
+    
+    img{
+        margin: 0 0 !important;
+        padding: 0 0 5px 0 !important;
+    }
+}
+
+// Artikel:
+div.article-body{
+    padding-bottom: 20px;
+    border-bottom: 1px solid $lighterGray;
+    margin-bottom: 10px;
+
+    .fulltext{
+        display: inline-block;
+        width: 100%;
+
+        // @include articlegrid;
+
+        // > *{
+        //     grid-column-start: col-1;
+		//     grid-column-end: end;
+        // }
+
+        // Zweispaltig
+        .column{
+            width: $columnWidthVanilla;
+            float: left;
+            
+            & + .column{
+                width: $columnWidthVanilla;
+                float: right;
+            }
+
+            img{
+                max-width: inherit;
+                width: 100%;
+                margin: 0 0 8px 0;
+            }
+
+            * + img{
+                margin: 8px 0;
+            }
+        }
+    }
+
+    h1, h2, h3{
+        color: $blue;
+        padding: 0 0 8px 0;
+    }
+
+    * + h1, * + h2, * + h3{
+        padding: 8px 0;
+    }
+
+    h1{
+        font-size: 32px;
+        line-height: 36px;
+    }
+
+    h2{
+        font-size: $fontSizeIntro;
+        line-height: $lineHeight;
+    }
+
+    h3{
+        font-size: $fontSizeText;
+        line-height: $lineHeight;
+        font-weight: 700;
+    }
+
+    h4{
+        font-size: $fontSizeText;
+        line-height: $lineHeight;
+        color: $darkGray;
+        font-weight: 700;
+        padding: 0 0 16px 0;
+    }
+
+    /* Links mit Pfeil davor */
+    br + a, a + a{
+        &:before{
+            width: 16px;
+            height: 14px;
+            line-height: 14px;
+            display: inline-block;
+            content: "";
+            background-image: url(../images/icons/arrow-link.svg);
+            background-size: 16px 14px;
+            margin-right: 8px;
+        }
+    }
+    
+    p{
+        max-width: 800px;
+
+        img{
+            // place-self: center;
+            // margin-bottom: 5px;
+            // float: right;
+            // padding-left: $articleGap;
+            // max-width: $columnWidth;
+            height: auto;
+            margin: 6px 0;
+        }
+
+        a{
+            &:before{
+                content: inherit; 
+            }
+        }
+    }
+
+    hr{
+        margin-bottom: 16px;
+        margin-top: 0px;
+        border: 0px;
+        border-bottom: 1px solid $lighterGray;    
+    }
+  
+
+    .inhaltsverzeichnis{
+        ul{
+            li{
+                padding-bottom: 0px;
+            }
+        }
+    }
+
+    /* Zitat */
+    blockquote{
+        width: 100%;
+        background-color: rgba($lighterBlue, 0.5);
+        padding: 32px 12px;
+        font-size: $lineHeight;
+        margin-bottom: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        > *{
+            max-width: 80%;
+        }
+
+        p{
+            font-size: 25px;
+            line-height: 32px;
+            padding: 0 0 0 0;
+            width: 100%;
+        }
+        
+        cite{
+            font-style: italic;
+            color: $blue;
+            line-height: 24px;
+            font-size: $fontSizeText;
+            width: 100%;
+
+            &:before{
+                content: "–";
+                display: inline-block;
+                line-height: 24px;
+                margin-right: 10px;
+                
+            }
+        }
+
+        p + cite{
+            margin-top: 16px;
+        }
+    }
+
+    pre{
+        font-size: 14px;
+        color: $gray;
+
+        a{
+            padding: 0 2px;
+        }
+    }
+
+    /* Link "zurück zum Seitenanfang" */
+    .foot{
+        padding-bottom: 32px;
+    }
+
+    /* Liste mit Bulletpoints */
+    ul{
+        list-style: none;
+        padding: 0 0 16px 0;
+    
+        li{
+            padding-left: 2.25em;
+            padding-bottom: 8px;
+            font-size: $fontSizeText;
+            line-height: $lineHeight;
+            color: $darkGray;
+    
+            &:before {
+                content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+                color:$blue; /* Change the color */
+                font-weight: bold; /* If you want it to be bold */
+                display: inline-block; /* Needed to add space between the bullet and the text */
+                width: 2.25em; /* Also needed for space (tweak if needed) */
+                margin-left: -2.25em; /* Also needed for space (tweak if needed) */
+            }
+
+            ul{
+                padding: 8px 0 0 0;
+            }
+        }
+
+        li:last-of-type{
+            padding-bottom: 0px;
+        }
+    }
+
+    /* Liste mit Aufzählung */
+    ol{
+        list-style: none;
+        padding: 0 0 16px 0;
+        counter-reset: item;
+
+        li{
+            padding-left: 2.25em;
+            padding-bottom: 8px;
+            font-size: $fontSizeText;
+            line-height: $lineHeight;
+            color: $darkGray;
+            //counter-increment: li;
+    
+            &:before {
+                // content: counter(li)'.';
+                content: counters(item, ".") ". ";
+                counter-increment: item;
+                color:$blue;
+                font-weight: bold;
+                display: inline-block;
+                width: auto;
+                padding-right: 1.5em;
+                margin-left: -2.25em;
+                text-align: left; 
+            }
+
+            ol{
+                padding: 8px 0 0 0;
+                padding-left: 0;
+
+                li ol{
+                    padding-left: .75em;
+                }
+            }
+        }
+
+        li:last-of-type{
+            padding-bottom: 0px;
+        }
+    }
+
+    /* Bilder Platzierung */
+    img{
+
+        &.pull-left{
+            float: left;
+            padding: 5px $imageDistance 5px 0;
+            // width: 418px;
+            max-width: $columnWidth; 
+            height: auto;
+        }
+
+        &.pull-right{
+            float: right;
+            padding: 5px 0 5px $imageDistance;
+            // width: 418px;
+            max-width: $columnWidth; 
+            height: auto;
+        }
+
+        &.pull-center{
+            margin: 0 auto;
+            padding: 5px 0 15px 0;
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            display: table-cell;
+            vertical-align: middle;
+            float: inherit;
+        }
+    }
+
+    /* Bilder Platzierung inkl. Bildunterschrift */
+    figure, img{
+        text-align: center;
+        padding: 10px 0 15px;
+
+        &.pull-right{
+            float: right;
+            padding: 5px 0;
+            padding-left: $imageDistance;
+            max-width: $columnWidth;
+            text-align: left;
+
+            img{
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                padding: 0 0;
+            }
+        }
+        &.pull-left{
+            float: left;
+            padding: 5px 0;
+            padding-right: $imageDistance;
+            max-width: $columnWidth;
+            text-align: left;
+            
+            img{
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                padding: 0 0;
+            }
+        }
+
+        &.pull-center{
+            padding: 10px 0 15px;
+            width: auto;
+        }
+
+        >img{
+            padding: 0 0;
+            max-width: 100%;
+        }
+    }
+
+    img{
+        max-width: 100%;
+    }
+}
+
+.item-page{
+    .article-footer{
+        width: 100%;
+        display: grid;
+        grid-template-columns: [article-footer-left] 1fr [article-footer-right]  2fr;
+        grid-template-rows: [article-footer-first-line] 1fr [article-footer-second-line] 1fr;
+        column-gap: 20px;
+        row-gap: 5px;
+        padding-top: 10px;
+
+        /* styling für Drucken-Button */
+        .icons{
+            display: grid;
+            grid-area: article-footer-first-line / article-footer-left;
+            align-content: center;
+    
+
+            .btn.dropdown-toggle{
+                display: none;
+            }
+
+            .dropdown-menu{
+                display: grid;
+                align-content: center;
+            }
+
+            .print-icon{
+                display: inline-flex;
+                align-items: flex-start;
+
+                &:before{
+                    content: "";
+                    display: inline-block;
+                    height: 18px;
+                    width: 18px;
+                    background-image: url(../images/icons/print.svg);
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    margin-right: 5px;
+                }
+                
+                a{
+                    text-transform: lowercase;
+                    color: $blue;
+                    line-height: 18px;
+
+                    &:before{
+                        content: 'Artikel ';
+                        text-transform: initial;
+                    }
+                }          
+            }
+        }
+
+        .tags{
+            grid-area: article-footer-first-line / article-footer-right;
+            text-align: right;
+
+            &:before{
+                content: "Schlagwörter: ";
+                color: $gray;
+                margin-right: 4px;
+                line-height: 18px;
+                display: inline-block;
+            }  
+
+            li{
+                padding-left: 2px;
+                line-height: 18px;
+                display: inline-block;
+
+                a{
+                    display: inline-flex;
+
+                    &:after{
+                        content:",";
+                        margin-left: 0px;
+                        line-height: 18px;
+                    }
+                }
+
+                &:last-of-type{
+                    a:after{
+                        content: inherit;
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+
+        .article-info{
+            grid-area: article-footer-first-line / article-footer-right;
+            text-align: right;
+            display: block;
+            font-style: italic;
+            color: $gray;
+
+            dd{
+                display: inline-block;
+                line-height: 18px;
+
+                &.create{
+                    time:after{
+                        content:",";
+                        margin-left: -2px;
+                        margin-right: 1px; 
+                    }
+
+                    time:before{
+                        content: "Erstellt:";
+                    }
+                }
+            }
+
+            .category-name{
+                display: none;
+            }
+        }
+
+        .tags + .article-info{
+            grid-area: article-footer-second-line / article-footer-right;
+        }
+    }
+}

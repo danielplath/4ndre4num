@@ -1,0 +1,36 @@
+
+html{
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 100%;
+  font-family: $mainFont;
+	font-style: normal;
+	font-weight: 400;
+  overflow-x: hidden;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+
+
+  * {
+      box-sizing: border-box;
+  }
+}
+
+a{
+  color: $blue;
+  text-decoration: none;
+
+  &:hover, &:active, &:visited{
+      color: $blue;
+  }
+
+  &:hover{
+      text-decoration: underline;
+  }
+}

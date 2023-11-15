@@ -1,0 +1,109 @@
+/*
+Elements (used with preprocessors and contain font, colors definitions, etc.)
+-- newsletter formular:
+*/
+
+$maxwidthContent: 440px;
+
+.newsletter-form{
+    background: $lightBlue;
+    color: $darkerBlue;
+    padding: 45px 20px 45px;
+    border: 1px solid #99c1e0;
+    border-radius: 5px;
+    display: inline-block;
+    width: 100%;
+    max-width: 600px;
+
+    .acym_introtext{
+        width: 100%;
+        max-width: $maxwidthContent;
+        margin: 0 auto;
+        font-size: 14px;
+        line-height: 20px;
+
+        &:before{
+            display: block;
+            content: "Newsletter 800 Jahre Andreanum";
+            font-size: 27px;
+            line-height: 40px;
+            color: $darkerBlue;
+            padding: 0 0 10px 0;
+        }
+    }
+
+    .acym_form > .acyfield_text{
+        display: flex;
+        justify-content: center;
+    }
+
+    label{
+        width: 100%;
+        max-width: $maxwidthContent;
+
+        .acym__users__creation__fields__title{
+            line-height: 32px;
+        }   
+    }
+
+    .onefield + .onefield{
+        margin-top: 12px;
+    }
+
+    input[type="text"], input[type="email"] {
+        border-color: $darkerBlue;
+        width: 100%;
+        max-width: inherit;
+    }
+
+
+
+
+
+    .acysubbuttons{
+        max-width: $maxwidthContent;
+        width: 100%;
+        margin: 40px auto 0;
+        padding-bottom: 0;
+
+        input[type="button"]{
+            background-color: $blue;
+            color: white;
+            line-height: 40px;
+            font-size: 16px;
+            padding: 0 22px;
+            border-radius: 5px;
+            font-family: $mainFont;
+            font-weight: 300;
+            border: 1px solid $darkBlue;
+        
+            &:hover{
+                background-color: $darkerBlue;
+            }
+        }
+
+
+    }
+
+    .acym_posttext{
+        font-size: 12px;
+        line-height: 16px;
+        font-style: italic;
+        width: 100%;
+        max-width: $maxwidthContent;
+        margin: 0 auto;
+        padding: 30px 0 0 0;
+
+        a{
+            text-decoration: underline;
+
+            &:before{
+                display: none;
+            }
+
+            &:hover{
+                text-decoration: none;
+            }
+        }       
+    }
+}

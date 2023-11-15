@@ -1,0 +1,47 @@
+/*
+Elements (used with preprocessors and contain font, colors definitions, etc.)
+-- copy:
+*/
+
+
+p{
+    font-family: $mainFont;
+    font-size: $fontSizeText;
+    line-height: $lineHeight;
+    text-align: left;
+    color: $darkGray;
+    padding: 0 0 16px 0;
+
+    strong{
+        font-weight: 700;
+    }
+
+    em{
+        font-style: italic;
+    }
+}
+
+.introtext, .category-desc{
+    padding: 0 0 16px 0;
+    margin-bottom: 32px;
+    position: relative;
+
+    &:after{
+        content: "";
+        width: 80px;
+        height: 2px;
+        position: absolute;
+        background-color: $blue;
+        bottom: 0px;
+        left: 0px;
+    }
+
+    p{
+        font-family: $mainFont;
+        font-size: $fontSizeIntro;
+        line-height: $lineHeight + 2px;
+        text-align: left;
+        color: $blue;
+        padding: 0 0 16px 0;
+    }
+}

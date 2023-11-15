@@ -1,0 +1,284 @@
+/* partnerlogos */
+.partnerlogo-wrapper{
+	position: relative;
+	background-color: white;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+
+	$siteMaxWidthPartner: $siteMaxWidth + 80px;
+
+	@media (max-width: $siteMaxWidthPartner) {
+		padding: 0 20px;
+	}
+}
+
+.partnergrid{
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	padding: 15px 0 5px;
+
+	@media (min-width: 1000px) {
+		height: 180px;
+    	padding: 25px 0 15px;
+	}
+
+	// &:before{
+	// 	position: absolute;
+	// 	content: "";
+	// 	background-color: white;
+	// 	top: 0px;
+	// 	left: -50vw;
+	// 	right: -30px;
+	// 	bottom: 0px;
+	// 	z-index: 10;
+	//
+	// }
+
+	> div{
+		display: flex;
+		place-self: center;
+		align-items: center;
+		flex-direction: column;
+		padding-top: 5px;
+
+		@media (min-width: 1000px) {
+			align-items: inherit;
+		}
+
+
+		label{
+			text-align: left;
+			display: block;
+			z-index: 19;
+			line-height: 10px;
+			font-size: 14px;
+			line-height: 16px;
+			color: lighten($gray, 20%);
+			padding-bottom: 2px;
+
+			@media (min-width: 1000px) {
+				padding-bottom: 10px;
+			}
+		}
+
+		> div{
+			display: flex;
+			flex-direction: row;
+			height: 100px;
+			justify-content: space-between;
+
+
+			@media (min-width: 1000px){
+				padding: 10px 0;
+			}
+		}
+
+		&.sponsor{
+			width: 100%;
+			max-width: 400px;
+
+			@media (min-width: 1000px){
+				width: 18%;
+				margin-right: 4%;
+				padding-right: 4%;
+				border-right: 1px solid lighten($gray, 40%);
+			}
+
+			.schulwerk{
+				width: 100%;
+    			max-width: 180px;
+				height: 90px;
+
+				@media (min-width: 1000px) {
+					margin-left: -12px;
+					margin-top: -6px;
+				}
+			}
+		}
+
+		&.partner{
+			width: 74%;
+
+			display: none;
+
+			@media (min-width: 1000px){
+				display: flex;
+			}
+
+			a, a > img{
+				cursor: pointer;
+				object-fit: contain;
+				height: 86%; //Fallback
+    		place-self: center; // Fallback
+				max-height: 80px; // Fallback
+			}
+
+
+			.freundeskreis{
+				height: 94%;
+    			place-self: center;
+			}
+
+			.kkhs{
+				height: 84%;
+    			place-self: center;
+			}
+
+			.nampu, .oekofair{
+				height: 88%;
+    			margin-top: -6px;
+    			place-self: center;
+			}
+
+			.eintracht{
+				height: 86%;
+    		place-self: center;
+			}
+
+			.ekd{
+				height: 86%;
+    		place-self: center;
+			}
+		}
+
+
+
+	}
+}
+
+/* footer */
+
+footer{
+	background-color: $blue;
+	background-image: url(../images/bg_andreaskreuz.svg);
+	background-repeat: no-repeat;
+    background-size: auto 300%;
+    background-position: center center;
+    width: 100%;
+	padding: 20px 0px;
+
+	@media (min-width: 1000px) {
+		background-size: auto 140%;
+    	background-position: 66% center;
+	}
+
+	a{
+		color: $lightBlue;
+		text-decoration: none;
+		font-size: 14px;
+		transition: color .25s ease;
+
+		&:active, &:visited{
+			color: $lightBlue;
+		}
+
+		&:hover{
+			text-decoration: underline;
+			color: white;
+		}
+	}
+
+	.nav-wrapper{
+		padding: 0px 10px 0 10px;
+
+		@media (min-width: 1000px) {
+			padding: 20px 10px 0 10px;
+		}
+
+
+		@media (min-width: $siteMaxWidth) {
+			padding: 20px 0 0 0;
+		}
+
+
+		nav{
+			width: 100%;
+			max-width: $siteMaxWidth;
+			margin: 0 auto;
+			padding-bottom: 40px;
+
+			display: none;
+
+			@media (min-width: 1000px) {
+				display: block;
+			}
+
+			h1, h2, h3, h4{
+				display: none;
+			}
+
+			ul.menu{
+				@include grid;
+
+				>li{
+					>a{
+						font-size: 18px;
+						line-height: 50px;
+					}
+
+					&.parent{
+						>.nav-child{
+							> .parent{
+								> .nav-child{
+									display: none; //hide subsubcategory
+								}
+							}
+						}
+					}
+
+				}
+			}
+		}
+
+		.sub-wrapper{
+			width: 100%;
+
+			.subnavigation{
+				.nav.menu{
+					display: block;
+    				text-align: center;
+
+					@media (min-width: $mobileBreakpoint) {
+						display: flex;
+						flex-direction: row;
+						justify-content: center;
+						text-align: inherit;
+					}
+
+					@media (min-width: 1000px) {
+						justify-content: inherit;
+					}
+
+					li{
+						display: inline-block;
+
+						@media (min-width: $mobileBreakpoint) {
+							display: block;
+						}
+					}
+
+					li + li{
+						&:before{
+							content:'';
+							padding: 0 14px;
+
+						}
+					}
+
+					@media (min-width: $mobileBreakpoint) {
+						li + li{
+							&:before{
+								content:'\007C';
+								padding: 0 14px;
+								color: $darkBlue;
+								display: inline-flex;
+							}
+						}
+					}
+
+				}
+			}
+		}
+	}
+}

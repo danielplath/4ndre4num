@@ -1,0 +1,62 @@
+/*
+Elements (used with preprocessors and contain font, colors definitions, etc.)
+-- breadcrumbs:
+*/
+
+.breadcrumbs{
+    width: 100%;
+    height: 30px;
+    padding-bottom: 15px;
+    padding-top: 5px;
+    box-sizing: content-box;
+    display: none;
+    align-items: center;
+
+    @media (min-width: $desktopBreakpoint) {
+        display: flex;
+    }
+
+    ul.breadcrumb{
+        display: flex;
+        flex-direction: row;
+
+        a{
+            color: $blue;
+
+            &:hover, &:active, &:visited{
+                color: $blue;
+            }
+
+        }
+
+        li{
+            font-size: 14px;
+            line-height: 16px;
+
+            /*ausblenden erste ">"*/
+            &:first-of-type{
+                display: none;
+            }
+
+            &.active{
+                color: lighten($gray, 20%);
+            }
+
+            .divider{
+                &:before{
+                    content: '\003E';
+                    display: inline-flex;
+                    color: lighten($gray, 20%);
+                    padding: 0 5px 0 2px;
+                }
+                
+    
+                img{
+                    display: none;
+                }
+            }
+        }
+
+        
+    }
+}

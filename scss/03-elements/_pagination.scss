@@ -1,0 +1,148 @@
+/*
+Elements (used with preprocessors and contain font, colors definitions, etc.)
+-- pagination:
+*/
+
+.pagination{
+	column-span: all;
+	width: 100%;
+
+	.counter{
+		display: none;
+	}
+
+	ul{
+		display: flex;
+		width: 100%;
+		flex-direction: row;
+
+		@media (min-width: $desktopBreakpoint){
+			justify-content: space-between;
+            min-width: 500px;
+		}
+	}
+
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    padding: 10px 5px;
+
+    .pagination-start, .pagination-end{
+        display: none;
+    }
+
+    ul{
+        width: auto; 
+    }
+
+    li{
+        a, span{
+            padding: 14px 8px;
+            font-weight: 500;
+            font-size: $fontSizeText;
+            line-height: 20px;
+            text-align: center;
+            font-weight: 500;
+            border-radius: $borderradius;
+
+            @media (min-width: 1024px){
+                padding: 14px 16px;
+            }
+        }
+
+        a{
+            color: $blue;
+            transition: all 0.4s cubic-bezier(0.65,0.05,0.36,1);
+            display: none;
+
+            @media (min-width: $desktopBreakpoint){
+                display: inline;
+            }
+
+            &:hover{
+                background-color: $lightBlue;
+
+                text-decoration: none;
+            }
+        }
+
+        span{
+            color: white;
+            font-weight: 700;
+            background-color: $blue;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.25);
+            padding: 14px 16px;
+
+        }
+
+        &.pagination-prev, &.pagination-next{
+            a{
+                display: inline;
+            }
+            
+            span{
+                background-color:inherit;
+                box-shadow: inherit;
+                color: $gray;
+                transition: all 0.4s cubic-bezier(0.65,0.05,0.36,1);
+                cursor: not-allowed;
+
+                &:hover{
+                    background-color: $lightGray;
+    
+                    text-decoration: none;
+                }
+            }
+        }
+
+        &.pagination-prev{
+            margin-right: 30px;
+
+            @media (min-width: $desktopBreakpoint){
+                margin-right: 10px;
+            }
+
+            span{
+                    background-image: url(../images/arrow-left-gray.svg);
+                    background-size: 8px 18px;
+                    background-repeat: no-repeat;
+                    background-position: 16px center;
+                    padding-left: 40px;
+            }
+
+            a{
+                    background-image: url(../images/arrow-left-blue.svg);
+                    background-size: 8px 18px;
+                    background-repeat: no-repeat;
+                    background-position: 16px center;
+                    padding-left: 40px;
+            }
+        }
+
+        &.pagination-next{
+            margin-left: 30px;
+
+            @media (min-width: $desktopBreakpoint){
+                margin-left: 10px;
+            }
+
+            span{
+                    background-image: url(../images/arrow-right-gray.svg);
+                    background-size: 8px 18px;
+                    background-repeat: no-repeat;
+                    background-position: right 16px center;
+                    padding-right: 40px;
+            }
+
+            a{
+                    background-image: url(../images/arrow-right-blue.svg);
+                    background-size: 8px 18px;
+                    background-repeat: no-repeat;
+                    background-position: right 16px center;
+                    padding-right: 40px;
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+/*
+Elements (used with preprocessors and contain font, colors definitions, etc.)
+-- button:
+*/
+
+button{
+    background-color: $blue;
+    color: white;
+    line-height: 40px;
+    font-size: 16px;
+    padding: 0 22px;
+    border-radius: 5px;
+    font-family: $mainFont;
+    font-weight: 300;
+    border: none;
+    transition: background-color 0.1 ease;
+
+    &:hover{
+        background-color: $darkerBlue;
+    }
+}

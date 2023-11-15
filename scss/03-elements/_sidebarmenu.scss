@@ -1,0 +1,224 @@
+/*
+Elements (used with preprocessors and contain font, colors definitions, etc.)
+-- sidebar menu:
+*/
+
+.menu-sidebar-menu{
+    background-color: white;
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    overflow: hidden;
+
+    li + li{
+        border-top: 1px solid $lightGray;
+    }
+
+
+    li{
+        width: 100%;
+        background-color: white;
+        transition: all 0.2s ease-in;
+        cursor: pointer;
+        position: relative;
+        
+        
+        a{
+            padding-left: 26px;
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+            transition: all 0.2s ease-in;
+
+            background-image: url(../images/submenu-arrow.svg);
+        background-size: 9px 16px;
+        background-repeat: no-repeat;
+        background-position: 92% center;
+
+            &:hover{
+                text-decoration: none;
+            }
+        } 
+
+
+        &.deeper{
+            .nav-child{
+                display: none;
+                background-color: $lightBlue;
+
+                li{
+                    background-color: transparent;
+
+                    a{
+                        color: $blue;
+                    }
+
+                    &+li{
+                        border-top: 1px solid $lighterBlue;
+                    }
+
+                    &.deeper{
+                        .nav-child{
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.active{
+            > a{
+                font-weight: bold;
+            }
+
+            &.current{
+                background-color: $blue;
+
+                a{
+                    color: white;
+                    background-image: url(../images/submenu-arrow-white.svg);
+                }
+            }
+            
+
+            &.deeper{
+                &.active{
+                    .nav-child{
+                        display: inherit;
+
+                        li{
+                            a {
+                                background-image: url(../images/submenu-arrow.svg);
+                                padding-left: 36px;
+                            }
+
+                            &:hover{    
+                                a{
+                                    background-color: darken($lightBlue, 5%);
+                                }
+                            }
+
+                            &.current{
+                                background-color: $blue;
+
+                                &:hover{    
+                                    a{
+                                        background-color: $blue;
+                                    }
+                                }
+                
+                                a{
+                                    color: white;
+                                    background-image: url(../images/submenu-arrow-white.svg);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+            
+        > a:hover{
+            color: white;
+            background-color: $blue;
+            background-image: url(../images/submenu-arrow-white.svg);
+        }
+        
+    }
+
+}
+
+.moduletable-cta-buttons{
+    .menu{
+        width: 100%;
+
+        li + li {
+            margin-top: 20px;
+        }
+
+        li{
+            position: relative;
+            width: 100%;
+            background-color: $blue;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+            transition: all 0.2s ease-in;
+
+
+            a{
+                height: 80px;
+                width: 100%;
+                display: flex;
+                color: white;
+                align-items: center;
+                padding-left: 18%;
+                padding-bottom: 6px;
+                padding-right: 14px;
+                display: flex;
+                flex-direction: column-reverse;
+                align-items: baseline;
+                justify-content: center;
+
+                &:hover{
+                    text-decoration: none;
+                }
+
+                &:before{
+                    font-size: 14px;
+                    line-height: 16px;
+                    color: $lighterBlue;
+                    font-style: italic;
+                    display: block;
+                }
+
+                &.cta-1{
+                    background-image: url(../images/icons/cta-stellenunsvor.svg);
+                    background-size: 30px auto;
+                    background-repeat: no-repeat;
+                    background-position: 5% center;
+                    
+                    &:before{
+                       content: "Erfahren Sie mehr über das Andreanum";
+                    }
+                }
+
+                &.cta-2{
+                    background-image: url(../images/icons/cta-anmeldung.svg);
+                    background-size: 30px auto;
+                    background-repeat: no-repeat;
+                    background-position: 5% center;
+
+                    &:before{
+                        content: "Informationen, Termine und Formulare";
+                    }
+                }
+
+                &.cta-3{
+                    background-image: url(../images/icons/cta-contact.svg);
+                    background-size: 30px auto;
+                    background-repeat: no-repeat;
+                    background-position: 5% center;
+
+                    &:before{
+                        content: "Hier können Sie uns erreichen";
+                    }
+                }
+
+                &.cta-4{
+                    background-image: url(../images/icons/cta-corona.svg);
+                    background-size: 36px auto;
+                    background-repeat: no-repeat;
+                    background-position: 4.5% center;
+                }
+            }
+
+            &:hover{
+                background-color: $darkerBlue;
+            }
+        }
+    }
+}

@@ -1,0 +1,130 @@
+/*
+Elements (used with preprocessors and contain font, colors definitions, etc.)
+-- personlist:
+*/
+
+$personlistbreakpoint: 699px;
+
+.content-wrapper .personlist{
+    justify-content: space-between !important;
+
+    @media (max-width: $personlistbreakpoint) {
+		flex-direction: column;
+        align-items: center;
+	}
+
+    .person{
+        background-color: $lighterBlue !important;
+        width: $columnWidthVanilla !important;
+        flex: inherit !important;
+        border-radius: 2px;
+        overflow: hidden;
+
+        @media (max-width: $personlistbreakpoint) {
+            width: calc(100% - 6.75%/2) !important;
+        } 
+
+        .outerperson{
+            padding: 0 0 !important;
+
+            .innerperson{
+                .personpicture{
+                    margin-right: 15px !important;
+
+                    .picture{
+                        margin: 0 0 !important;
+                        width: 140px !important;
+                        height: 210px !important;
+                        position: relative;
+                        overflow: hidden;
+                        
+
+                        img{
+                            padding: 0 0;
+                            position: absolute;
+                            min-width: 1000%;
+                            min-height: 1000%;
+                            max-width: inherit;
+                            left: 50%;
+                            top: 50%;
+                            transform: translateX(-50%) translateY(-50%) scale(0.1);
+                            z-index: -1;
+                        }
+
+                        .nopicture{
+                            background-image: url(../images/placeholder-portrait.png);
+                            background-position: center center;
+                            background-size: cover;
+                        }
+                    }
+                }
+
+                .personinfo{
+                    position: absolute;
+                    bottom: 10px;
+                    right: 0px;
+                    left: 154px;
+                    top: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    overflow: inherit !important;                
+
+                    .category{
+                        font-weight: 600;
+                        margin-bottom: auto;
+                        font-weight: 600;
+                    }
+
+                    .personfield{
+                        font-size: $fontSizeText !important;
+                        line-height: 22px !important;
+
+                        &.fieldemail{
+                            font-size: 14px !important;
+                        }
+                    }
+
+                    .fieldname{
+                        margin-top: 4px;
+                    }
+
+                    .fieldposition{
+                        margin-bottom: 4px;
+                    }
+
+                    .tags{
+                        line-height: 1.5em;
+
+                        span{
+                            margin-right: 4px;
+                        }
+                        
+                        a{
+                            color: $blue;
+                            opacity: .6;
+
+                            span{
+                                white-space: nowrap;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .catid-85{
+        .personinfo{
+            .category span{
+                opacity: 0;
+            }
+        }
+    }
+}
+
+.category-desc + form.form-inline{
+
+        display: none;
+}
+

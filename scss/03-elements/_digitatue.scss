@@ -1,0 +1,71 @@
+/*
+Elements (used with preprocessors and contain font, colors definitions, etc.)
+-- Modul für digitatü:
+*/
+
+.digitatue-link{
+    text-decoration: none;
+    display: block;
+
+    &:hover{
+        text-decoration: none !important;
+    }
+}
+
+.digitatue-wrapper{
+    width: 100%;
+    height: 120px;
+    border-radius: 10px;
+    background: url('../images/digitatue/schule.png'), #f9fcff;
+    background-position: left;
+    background-size: contain;
+    background-repeat: no-repeat;
+    box-shadow: 2px 2px 5px 0px rgb(110 73 15 / 55%);
+    padding: 26px 54px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    position: relative;
+    transition: transform .2s ease-out;;
+    cursor: pointer;
+
+    &:after{
+        content: "";
+        display: block;
+        background: url('../images/digitatue/digitatue-arrow.svg');
+        background-size: 10px auto;
+        background-position: center center;
+        background-repeat: no-repeat;
+        width: 52px;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+    }
+    &:hover{
+        transform: scale(1.03);
+    }
+    
+    .digitatue-logo{
+        background-image: url('../images/digitatue/digitatue-logo.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 116px;
+        height: 32px;
+        display: block;
+    
+    }
+
+    .digitatue-subline{
+        color: $blue;
+        text-align: right;
+        font-style: italic;
+        font-weight: 100;
+        font-size: 14px;
+        line-height: 19px;
+        user-select: none;
+        text-decoration: none;
+    }
+}
