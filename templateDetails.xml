@@ -54,8 +54,8 @@
 		<position>menu-widget</position>
 	</positions>
 	<languages folder="language">
-		<language tag="en-GB">en-GB/en-GB.tpl_protostar.ini</language>
-		<language tag="en-GB">en-GB/en-GB.tpl_protostar.sys.ini</language>
+		<language tag="en-GB">en-GB/en-GB.tpl_andreanum.ini</language>
+		<language tag="en-GB">en-GB/en-GB.tpl_andreanum.sys.ini</language>
 	</languages>
 	<config>
 		<fields name="params">
